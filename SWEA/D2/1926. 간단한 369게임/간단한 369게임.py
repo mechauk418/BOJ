@@ -2,38 +2,13 @@
 N=int(input())
 
 N_list = [ str(i) for i in range(1,N+1) ]
-R_list3 = ['0']*N
 
-
-
-for i in range(N):
-    if '3' in N_list[i] and ( '0' in N_list[i] or '1' in N_list[i] or '2' in N_list[i] or '4' in N_list[i] or '5' in N_list[i] or '7' in N_list[i] or '8' in N_list[i]):
-        R_list3[i] = '-'
-    elif '3' in N_list[i]:
-        R_list3[i] = N_list[i].replace('3','-')
+def threesixnine(n):
+    cnt = n.count('3') + n.count('6') + n.count('9')
+    if cnt == 0:
+        return n
     else:
-        R_list3[i] = N_list[i]
+        return '-' * cnt
 
-N_list = R_list3
-
-for i in range(N):
-    if '6' in N_list[i] and ( '0' in N_list[i] or '1' in N_list[i] or '2' in N_list[i] or '4' in N_list[i] or '5' in N_list[i] or '7' in N_list[i] or '8' in N_list[i]):
-        R_list3[i] = '-'
-    elif '6' in N_list[i]:
-        R_list3[i] = N_list[i].replace('6','-')
-    else:
-        R_list3[i] = N_list[i]
-
-N_list = R_list3
-
-for i in range(N):
-    if '9' in N_list[i] and ( '0' in N_list[i] or '1' in N_list[i] or '2' in N_list[i] or '4' in N_list[i] or '5' in N_list[i] or '7' in N_list[i] or '8' in N_list[i]):
-        R_list3[i] = '-'
-    elif '9' in N_list[i]:
-        R_list3[i] = N_list[i].replace('9','-')
-    else:
-        R_list3[i] = N_list[i]
-
-N_list = R_list3
-
-print( ' '.join(N_list)   )
+ans = list(map(threesixnine,N_list))
+print(' '.join(ans))
