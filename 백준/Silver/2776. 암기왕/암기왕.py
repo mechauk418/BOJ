@@ -9,13 +9,12 @@ for i in range(T):
     pad2 = list(map(int,sys.stdin.readline().split()))
     pad2.reverse()
 
-    pad1_set = set(pad1)
+    dictionary = dict.fromkeys(pad1)
 
     for j in range(M):
         chk = pad2.pop()
-        if chk in pad1_set:
+        if chk in dictionary:
             print(1)
         else:
             print(0)
-
 
