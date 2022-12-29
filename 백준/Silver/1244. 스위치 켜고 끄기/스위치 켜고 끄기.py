@@ -30,18 +30,12 @@ for i in P_list:
                 break
 
 
-ans_list = []
-ans = ''
+cnt = 0
 for i in S_list:
-    ans += str(i)
+    print(i, end=' ')
+    
+    cnt+=1
+    if cnt==20:
+        print()
+        cnt=0
 
-    if len(ans)==20:
-        ans_list.append(ans)
-        ans=''
-
-ans_list.append(ans)
-
-for i in ans_list:
-    for j in i:
-        print(j,end=' ')
-    print()
