@@ -10,6 +10,7 @@ def solution(today, terms, privacies):
         term_dict[alp] = int(num)
         
     term_alp = list(term_dict.keys())
+    
     for pri in privacies:
         priday,term = pri.split()
         year,month,day = map(int,priday.split('.'))
@@ -27,7 +28,7 @@ def solution(today, terms, privacies):
         if today_year > year:
             answer.append(idx)
 
-        elif (year==today_year) and today_month>month:
+        elif (year==today_year) and (today_month>month):
             answer.append(idx)
         elif (year==today_year) and (today_month==month) and (today_day>=day):
             answer.append(idx)            
