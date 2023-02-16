@@ -1,5 +1,5 @@
 def solution(today, terms, privacies):
-    ans = []
+    answer = []
     term_dict = dict()
     today_year,today_month,today_day = map(int,today.split('.'))
     idx = 1
@@ -25,14 +25,14 @@ def solution(today, terms, privacies):
                         break
         
         if today_year > year:
-            ans.append(idx)
+            answer.append(idx)
 
         elif (year==today_year) and today_month>month:
-            ans.append(idx)
+            answer.append(idx)
         elif (year==today_year) and (today_month==month) and (today_day>=day):
-            ans.append(idx)            
+            answer.append(idx)            
 
         idx+=1
     
         
-    return ans
+    return answer
