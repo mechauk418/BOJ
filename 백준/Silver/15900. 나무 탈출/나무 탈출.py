@@ -1,28 +1,31 @@
 import sys
-sys.setrecursionlimit(10**5)
+sys.setrecursionlimit(10**9)
+input = sys.stdin.readline
 N = int(input())
+
 tree = [[] for _ in range(N+1)]
-depth = [0 for _ in range(N+1)]
-visit = [0 for _ in range(N+1)]
+visited = [0 for _ in range(N+1)]
 ans = 0
-for _ in range(N-1):
-    a,b = map(int,sys.stdin.readline().split())
+
+for i in range(N-1):
+    a,b = map(int,input().split())
+
     tree[a].append(b)
     tree[b].append(a)
 
-def dep(a):
-    visit[a] = 1
-    for i in tree[a]:
-        if visit[i] == 0:
-            depth[i] = depth[a] + 1
-            dep(i)
 
-dep(1)
-for i in range(2,N+1):
-    if len(tree[i]) == 1:   # 리프노드이면
-        ans += depth[i]
+def dfs(x,depth):
+    global ans
+    visited[x]=1
+    if len(tree[x])==1:
+        ans+=depth
+    for i in tree[x]:
+        if visited[i]==0:
+            dfs(i,depth+1)
 
-if (ans % 2 == 0):  # 짝수
+dfs(1,0)
+
+if (ans%2 == 0):
     print("No")
-else:	# 홀수
-    print("Yes")
+else:
+    print('Yes')
